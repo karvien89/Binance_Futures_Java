@@ -29,6 +29,8 @@ public class Order {
 
     private BigDecimal stopPrice;
 
+    private Boolean closePosition;
+
     private String symbol;
 
     private String timeInForce;
@@ -125,6 +127,14 @@ public class Order {
 
     public void setStopPrice(BigDecimal stopPrice) {
         this.stopPrice = stopPrice;
+    }
+
+    public Boolean getClosePosition() {
+        return closePosition;
+    }
+
+    public void setClosePosition(Boolean closePosition) {
+        this.closePosition = closePosition;
     }
 
     public String getSymbol() {

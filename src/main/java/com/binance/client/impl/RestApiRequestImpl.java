@@ -607,7 +607,7 @@ class RestApiRequestImpl {
 
     RestApiRequest<Order> postOrder(String symbol, OrderSide side, PositionSide positionSide, OrderType orderType,
             TimeInForce timeInForce, String quantity, String price, String reduceOnly,
-            String newClientOrderId, String stopPrice, WorkingType workingType, NewOrderRespType newOrderRespType) {
+            String newClientOrderId, String stopPrice, String closePosition, WorkingType workingType, NewOrderRespType newOrderRespType) {
         RestApiRequest<Order> request = new RestApiRequest<>();
         UrlParamsBuilder builder = UrlParamsBuilder.build()
                 .putToUrl("symbol", symbol)
@@ -620,6 +620,7 @@ class RestApiRequestImpl {
                 .putToUrl("reduceOnly", reduceOnly)
                 .putToUrl("newClientOrderId", newClientOrderId)
                 .putToUrl("stopPrice", stopPrice)
+                .putToUrl("closePosition", closePosition)
                 .putToUrl("workingType", workingType)
                 .putToUrl("newOrderRespType", newOrderRespType);
 
@@ -638,6 +639,7 @@ class RestApiRequestImpl {
             result.setPositionSide(jsonWrapper.getString("positionSide"));
             result.setStatus(jsonWrapper.getString("status"));
             result.setStopPrice(jsonWrapper.getBigDecimal("stopPrice"));
+            result.setClosePosition(jsonWrapper.getBoolean("closePosition"));
             result.setSymbol(jsonWrapper.getString("symbol"));
             result.setTimeInForce(jsonWrapper.getString("timeInForce"));
             result.setType(jsonWrapper.getString("type"));
