@@ -42,7 +42,7 @@ class RestApiRequestImpl {
 
     private Request createRequest(String url, String address, UrlParamsBuilder builder) {
         String requestUrl = url + address;
-        System.out.print(requestUrl);
+//        System.out.print(requestUrl);
         if (builder != null) {
             if (builder.hasPostParam()) {
                 return new Request.Builder().url(requestUrl).post(builder.buildPostBody())
